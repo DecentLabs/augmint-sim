@@ -11,6 +11,7 @@ let ethUsdHist = [];
 function updateRates(state) {
     const day = clock.getDay() + dayAdjust;
     const augmint = state.augmint;
+    rates.rend = rates[day] ? rates[day].seq - 3 : 0;
     if (!rates[day]) {
         throw new AugmintError(
             "No ETH/USD historic price available for day " +
