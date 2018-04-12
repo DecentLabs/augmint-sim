@@ -347,6 +347,10 @@ const graphs = [
     }
 ];
 
+function clear(wrapper) {
+    wrapper.innerHTML = "";
+}
+
 function init(wrapper) {
     Chart.defaults.global.responsive = false;
     Chart.defaults.global.maintainAspectRatio = true;
@@ -445,5 +449,6 @@ function update(timeInSecs, augmint) {
 
 module.exports = {
     init,
+    clear,
     update
 };
