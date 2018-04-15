@@ -22,6 +22,7 @@ const loadLSBtn = document.querySelector(".load-ls-btn");
 const jsonFileInput = document.getElementById("json-file-input");
 
 const restartBtn = document.querySelector(".restart-btn");
+const accelerateBtn = document.querySelector(".accelerate-btn");
 const dumpStateBtn = document.querySelector(".dumpState-btn");
 const dumpMovesLogBtn = document.querySelector(".dumpMovesLog-btn");
 const toggleLogBtn = document.querySelector(".toggleLog-btn");
@@ -216,6 +217,12 @@ function togglePause() {
 
         simulation.patchAugmintParams(getParamsFromUI());
     }
+}
+
+function toggleAccelerate() {// every 50 days
+    rates.rates.accelerate = !rates.rates.accelerate;
+    var button = document.getElementsByClassName("accelerate-btn")[0];
+    button.innerHTML = rates.rates.accelerate ? "Beautifully" : "Accelerate";
 }
 
 function toggleLog() {
@@ -531,6 +538,7 @@ function init() {
     loadLSBtn.addEventListener("click", loadFromLocalStorage);
 
     pauseBtn.addEventListener("click", togglePause);
+    accelerateBtn.addEventListener("click", toggleAccelerate);
     ratesDropDown.addEventListener("change", () => ratesDropDownOnChange(ratesDropDown.value));
     dumpStateBtn.addEventListener("click", () => {
         simulation.patchAugmintParams(getParamsFromUI());
