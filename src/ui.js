@@ -184,7 +184,6 @@ function togglePause() {
         inputs.forEach(input => {
             input.disabled = false;
         });
-        console.log("enged");
         document.getElementById("refreshPeriod").disabled = false;
 
 
