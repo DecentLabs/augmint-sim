@@ -441,7 +441,7 @@ function update(timeInSecs, augmint) {
 
         // redraw:
         // every 50 days
-        if(rates.accelerate && !(rates.rend % 50) || rates.rend == (rates.length - 1)){
+        if(rates.accelerate && !(rates.rend % rates.refreshPeriod) || rates.rend == (rates.length - 1)){
             graph.chart.update();
         }
         if(!rates.accelerate) {

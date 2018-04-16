@@ -12,6 +12,7 @@ let dayAdjust = 0;
 let ethUsdHist = [];
 
 rates.accelerate = false;// every 50 days
+rates.refreshPeriod = 50;
 
 function updateRates(state) {
     const day = clock.getDay() + dayAdjust;

@@ -76,6 +76,7 @@ function getParamsFromUI() {
     };
     //technical params
     params["ethUsdTrendSampleDays"] = parseInt(document.getElementById("ethUsdTrendSampleDays").value);
+    rates.rates.refreshPeriod = parseInt(document.getElementById("refreshPeriod").value);
 
     return params;
 }
@@ -108,6 +109,7 @@ function updateUIFromParams() {
     ).toFixed(2);
     // technical params
     document.getElementById("ethUsdTrendSampleDays").value = augmint.params.ethUsdTrendSampleDays;
+    document.getElementById("refreshPeriod").value = rates.rates.refreshPeriod;
 }
 
 function getActorsFromGui() {
@@ -182,6 +184,9 @@ function togglePause() {
         inputs.forEach(input => {
             input.disabled = false;
         });
+        console.log("enged");
+        document.getElementById("refreshPeriod").disabled = false;
+
 
         const loadproductInputs = Array.from(document.querySelectorAll(".loanproduct-input-container input"));
         loadproductInputs.forEach(input => {
@@ -204,6 +209,7 @@ function togglePause() {
         inputs.forEach(input => {
             input.disabled = true;
         });
+        document.getElementById("refreshPeriod").disabled = true;
 
         const loadproductInputs = Array.from(document.querySelectorAll(".loanproduct-input-container input"));
         loadproductInputs.forEach(input => {
@@ -314,7 +320,7 @@ function getMainParamsAsJSON() {
                 "minimumLoanInAcd": "${minimumLoanInAcd}",
                 "ethUsdTrendSampleDays": "${ethUsdTrendSampleDays}"
               }`;
-
+    rates.rates.refreshPeriod = document.getElementById("refreshPeriod").value;
     return jsonObj;
 }
 
