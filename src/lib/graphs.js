@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 const Chart = require("chart.js");
 const rates = require("../augmint/rates.json");// every 50 days
 const PURPLE = "rgba(139, 95, 191, 1)";
