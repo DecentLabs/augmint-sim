@@ -1,5 +1,6 @@
 "use strict";
 const Chart = require("chart.js");
+const rates = require("../augmint/rates.json");// every 50 days
 const PURPLE = "rgba(139, 95, 191, 1)";
 //const DARKGREEN = 'rgba(3, 71, 50, 1)';
 const GREEN = "rgba(0, 129, 72, 1)";
@@ -439,7 +440,13 @@ function update(timeInSecs, augmint) {
         }
 
         // redraw:
-        graph.chart.update();
+        // every 50 days
+        if(rates.accelerate && !(rates.rend % rates.refreshPeriod) || rates.rend == (rates.length - 1)){
+            graph.chart.update();
+        }
+        if(!rates.accelerate) {
+            graph.chart.update();
+        }
     });
 }
 

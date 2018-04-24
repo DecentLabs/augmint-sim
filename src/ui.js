@@ -22,6 +22,7 @@ const loadLSBtn = document.querySelector(".load-ls-btn");
 const jsonFileInput = document.getElementById("json-file-input");
 
 const restartBtn = document.querySelector(".restart-btn");
+const accelerateBtn = document.querySelector(".accelerate-btn");
 const dumpStateBtn = document.querySelector(".dumpState-btn");
 const dumpMovesLogBtn = document.querySelector(".dumpMovesLog-btn");
 const toggleLogBtn = document.querySelector(".toggleLog-btn");
@@ -75,6 +76,7 @@ function getParamsFromUI() {
     };
     //technical params
     params["ethUsdTrendSampleDays"] = parseInt(document.getElementById("ethUsdTrendSampleDays").value);
+    rates.rates.refreshPeriod = parseInt(document.getElementById("refreshPeriod").value);
 
     return params;
 }
@@ -107,6 +109,7 @@ function updateUIFromParams() {
     ).toFixed(2);
     // technical params
     document.getElementById("ethUsdTrendSampleDays").value = augmint.params.ethUsdTrendSampleDays;
+    document.getElementById("refreshPeriod").value = rates.rates.refreshPeriod;
 }
 
 function getActorsFromGui() {
@@ -181,6 +184,8 @@ function togglePause() {
         inputs.forEach(input => {
             input.disabled = false;
         });
+        document.getElementById("refreshPeriod").disabled = false;
+
 
         const loadproductInputs = Array.from(document.querySelectorAll(".loanproduct-input-container input"));
         loadproductInputs.forEach(input => {
@@ -203,6 +208,7 @@ function togglePause() {
         inputs.forEach(input => {
             input.disabled = true;
         });
+        document.getElementById("refreshPeriod").disabled = true;
 
         const loadproductInputs = Array.from(document.querySelectorAll(".loanproduct-input-container input"));
         loadproductInputs.forEach(input => {
@@ -216,6 +222,12 @@ function togglePause() {
 
         simulation.patchAugmintParams(getParamsFromUI());
     }
+}
+
+function toggleAccelerate() {// every 50 days
+    rates.rates.accelerate = !rates.rates.accelerate;
+    var button = document.getElementsByClassName("accelerate-btn")[0];
+    button.innerHTML = rates.rates.accelerate ? "Beautifully" : "Accelerate";
 }
 
 function toggleLog() {
@@ -307,7 +319,7 @@ function getMainParamsAsJSON() {
                 "minimumLoanInAcd": "${minimumLoanInAcd}",
                 "ethUsdTrendSampleDays": "${ethUsdTrendSampleDays}"
               }`;
-
+    rates.rates.refreshPeriod = document.getElementById("refreshPeriod").value;
     return jsonObj;
 }
 
@@ -531,6 +543,7 @@ function init() {
     loadLSBtn.addEventListener("click", loadFromLocalStorage);
 
     pauseBtn.addEventListener("click", togglePause);
+    accelerateBtn.addEventListener("click", toggleAccelerate);
     ratesDropDown.addEventListener("change", () => ratesDropDownOnChange(ratesDropDown.value));
     dumpStateBtn.addEventListener("click", () => {
         simulation.patchAugmintParams(getParamsFromUI());

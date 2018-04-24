@@ -202,7 +202,7 @@
     }
 
 
-    .sim-inputs, .loanproduct-inputs {
+    .sim-inputs, .loanproduct-inputs, .technical-inputs {
       line-height: 25px;
     }
 
@@ -274,6 +274,7 @@
     <div class="buttons">
         <button class="btn pause-btn">Start</button>
         <button class="btn restart-btn">Restart</button>
+        <button class="btn accelerate-btn">Accelerate</button>
         <label class="label" for="rates-dropdown">Set ETH/USD:</label>
         <select id="rates-dropdown" class="dropdown rates-dropdown">
         </select>
@@ -346,6 +347,7 @@
         <div class="flex-item">
             <h4>Technical params:</h4>
             <label class="technical-inputs">ethUsdTrendSampleDays: </label><input type="number" id="ethUsdTrendSampleDays"/><br/>
+            <label class="technical-inputs">refreshPeriod: </label><input type="number" id="refreshPeriod"/><br/>
             <br/>
         </div>
       </div>
