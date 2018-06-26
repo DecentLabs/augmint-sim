@@ -10,9 +10,13 @@ const AugmintError = require("../augmint/augmint.error.js");
 let dayAdjust = 0;
 let ethUsdHist = [];
 
+rates.accelerate = false;// every 50 days
+rates.refreshPeriod = 50;
+
 function updateRates(state) {
     const day = clock.getDay() + dayAdjust;
     const augmint = state.augmint;
+    rates.rend = rates[day] ? rates[day].seq - 3 : 0;// every 50 days
     if (!rates[day]) {
         throw new AugmintError(
             "No ETH/USD historic price available for day " +
