@@ -108,6 +108,21 @@ const graphs = [
             }]
     },
     {
+        title: "ETH Reserves (USD) / Total Default Loan, %",
+        disableShift: true,
+        options: { scales: { yAxes: [ {ticks: { suggestedMax: 2 } } ] } },
+        datasets: [{
+            func: augmint => {
+                if(augmint.balances.defaultedLoansAcd == 0) {
+                    return 0;
+                } else {
+                    return 100 * augmint.reserveEth * augmint.rates.ethToUsd / augmint.balances.defaultedLoansAcd; 
+                }
+            },
+            options: { backgroundColor: TRANSPARENT}
+        }]
+    },
+    {
         title: "Open ACD user demand (% of total ACD)",
         options: { scales: { yAxes: [ {ticks: {min: undefined} }]}},
         datasets: [{
