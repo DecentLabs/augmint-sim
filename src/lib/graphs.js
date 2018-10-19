@@ -108,6 +108,16 @@ const graphs = [
             }]
     },
     {
+        title: "Total default Loans (ACD)",
+        datasets: [{
+            func: augmint => { return augmint.balances.defaultedLoansAcd; },
+            options: {
+                borderColor: DEFAULTED_COLOR,
+                backgroundColor: DEFAULTED_COLOR_OPA
+            }
+        }]
+    },
+    {
         title: "ETH Reserves (USD) / Total Default Loan, %",
         disableShift: true,
         options: { scales: { yAxes: [ {ticks: { suggestedMax: 2 } } ] } },
@@ -334,17 +344,6 @@ const graphs = [
             }
         }]
     },
-    {
-        title: "Total default Loans (ACD)",
-        datasets: [{
-            func: augmint => { return augmint.balances.defaultedLoansAcd; },
-            options: {
-                borderColor: DEFAULTED_COLOR,
-                backgroundColor: DEFAULTED_COLOR_OPA
-            }
-        }]
-    },
-
     {
         title: "ACD fees earned",
         datasets: [{
