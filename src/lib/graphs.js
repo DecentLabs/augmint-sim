@@ -167,6 +167,10 @@ const graphs = [{
                     ticks: {
                         suggestedMax: 2
                     }
+                }],
+                yAxes: [{
+                    display: true,
+                    type: 'logarithmic'
                 }]
             }
         },
@@ -175,7 +179,8 @@ const graphs = [{
                 if (augmint.balances.defaultedLoansAcd == 0) {
                     return 0;
                 } else {
-                    return Math.log10(100 * augmint.reserveEth * augmint.rates.ethToUsd / augmint.balances.defaultedLoansAcd);
+                    //return Math.log10(100 * augmint.reserveEth * augmint.rates.ethToUsd / augmint.balances.defaultedLoansAcd);
+                    return 100 * augmint.reserveEth * augmint.rates.ethToUsd / augmint.balances.defaultedLoansAcd;
                 }
             },
             options: {
