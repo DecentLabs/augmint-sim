@@ -159,7 +159,7 @@ const graphs = [{
         }]
     },
     {
-        title: "ETH Reserves (USD) / Total Default Loan, % - Logarithmic scale 0=10^0, 1=10^1, 2=10^2, ...",
+        title: "ETH Reserves (USD) / Total Default Loan, % - Logarithmic scale 1=10^1, 2=10^2, ...",
         disableShift: true,
         options: {
             scales: {
@@ -559,7 +559,7 @@ function init(wrapper) {
             graph.title === "Open ACD Demand '000s" ||
             graph.title === "Loan to Lock Ratio" ||
             graph.title === "Total default Loans (ACD)" ||
-            graph.title === "ETH Reserves (USD) / Total Default Loan, % - Logarithmic scale 0=10^0, 1=10^1, 2=10^2, ..."
+            graph.title === "ETH Reserves (USD) / Total Default Loan, % - Logarithmic scale 1=10^1, 2=10^2, ..."
             ?
             920 :
             300;
