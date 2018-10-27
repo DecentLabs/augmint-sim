@@ -159,7 +159,7 @@ const graphs = [{
     },
     {
         title: "ETH Reserves (USD) / Total Default Loan, %",
-        disableShift: true,
+        disableShift: false,
         options: {
             scales: {
                 yAxes: [{
