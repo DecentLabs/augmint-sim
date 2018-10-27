@@ -147,6 +147,7 @@ const graphs = [{
     },
     {
         title: "Total default Loans (ACD)",
+        disableShift: true,
         datasets: [{
             func: augmint => {
                 return augmint.balances.defaultedLoansAcd;
@@ -159,7 +160,7 @@ const graphs = [{
     },
     {
         title: "ETH Reserves (USD) / Total Default Loan, %",
-        disableShift: false,
+        disableShift: true,
         options: {
             scales: {
                 yAxes: [{
