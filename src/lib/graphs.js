@@ -159,7 +159,7 @@ const graphs = [{
         }]
     },
     {
-        title: "ETH Reserves (USD) / Total Default Loan, %",
+        title: "ETH Reserves (USD) / Total Default Loan, % - Logarithmic scale 0=10^0, 1=10^1, 2=10^2, ...",
         disableShift: true,
         options: {
             scales: {
