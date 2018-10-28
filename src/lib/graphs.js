@@ -181,7 +181,17 @@ const graphs = [{
             options: {
                 backgroundColor: TRANSPARENT
             }
-        }]
+        },
+        {
+            func: augmint => 2,
+            options: {
+                label: "limit",
+                borderDash: DASHED_LINE,
+                borderColor: LOCKED_ACD_COLOR,
+                backgroundColor: TRANSPARENT
+            }
+        }
+    ]
     },
     {
         title: "Open ACD user demand (% of total ACD)",
@@ -559,8 +569,7 @@ function init(wrapper) {
             graph.title === "Open ACD Demand '000s" ||
             graph.title === "Loan to Lock Ratio" ||
             graph.title === "Total default Loans (ACD)" ||
-            graph.title === "ETH Reserves (USD) / Total Default Loan, % - Logarithmic scale 1=10^1, 2=10^2, ..."
-            ?
+            graph.title === "ETH Reserves (USD) / Total Default Loan, % - Logarithmic scale 1=10^1, 2=10^2, ..." ?
             920 :
             300;
 
